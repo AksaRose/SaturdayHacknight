@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import type { Testimonial } from "@/lib/data";
 import { cn } from "@/lib/utils";
 

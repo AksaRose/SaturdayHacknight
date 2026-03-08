@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, Users, Trophy, ArrowRight } from "lucide-react";
-import { REGISTER_URL } from "@/lib/data";
+import { motion } from "@/lib/motion";
+import { Github, Users, Trophy, ArrowRight, Gift } from "lucide-react";
+import { REGISTER_URL, STICKERS_URL } from "@/lib/data";
 
 const steps = [
   {
@@ -82,7 +82,7 @@ export default function GetSelected() {
 
         {/* Highlight box */}
         <motion.div
-          className="rounded-xl border border-[#ffb800]/20 bg-[#ffb800]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          className="rounded-xl border border-[#ffb800]/20 bg-[#ffb800]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-5"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -109,6 +109,37 @@ export default function GetSelected() {
           >
             Start Building
             <ArrowRight size={16} />
+          </a>
+        </motion.div>
+
+        {/* Winner goodies */}
+        <motion.div
+          className="rounded-xl border border-[#00ff87]/15 bg-[#00ff87]/5 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#00ff87]/10 border border-[#00ff87]/20 shrink-0">
+            <Gift size={20} className="text-[#00ff87]" />
+          </div>
+          <div className="flex-1">
+            <p className="font-mono text-xs text-[#00ff87] uppercase tracking-widest mb-1">
+              Best Project Goodies
+            </p>
+            <h3 className="font-bold text-white mb-1">
+              Winners get the full TinkerHub pack
+            </h3>
+            <p className="text-[#666666] text-sm">
+              Best project of each hack night gets an exclusive goodies pack — TinkerHub t-shirt, SHN sticker set, and surprise merch. Shipped to your door.
+            </p>
+          </div>
+          <a
+            href={STICKERS_URL}
+            className="shrink-0 inline-flex items-center gap-2 border border-[#00ff87]/30 text-[#00ff87] font-mono text-xs px-4 py-2 rounded-lg hover:bg-[#00ff87]/10 transition-all duration-300"
+          >
+            Claim stickers
+            <ArrowRight size={13} />
           </a>
         </motion.div>
       </div>

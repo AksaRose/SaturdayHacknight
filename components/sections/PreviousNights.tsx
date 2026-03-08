@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { ArrowRight, Star, Users, FolderGit2 } from "lucide-react";
 import { pastHackNights } from "@/lib/data";
 

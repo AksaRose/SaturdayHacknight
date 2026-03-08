@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { ExternalLink, User } from "lucide-react";
 import type { Project } from "@/lib/data";
 

@@ -22,9 +22,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [mobileOpen]);
+
   return (
     <>
       <nav
+        aria-label="Main navigation"
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
             ? "backdrop-blur-md bg-[#090909]/80 border-b border-white/8"
@@ -64,9 +74,12 @@ export default function Navbar() {
               Register Now
             </a>
             <button
-              className="md:hidden text-white/60 hover:text-white transition-colors"
+              className="md:hidden text-white/60 hover:text-white transition-colors touch-target"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-haspopup="true"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -76,7 +89,13 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-[#090909]/95 backdrop-blur-md md:hidden flex flex-col items-center justify-center gap-8">
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className="fixed inset-0 z-40 bg-[#090909]/95 backdrop-blur-md md:hidden flex flex-col items-center justify-center gap-8"
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}

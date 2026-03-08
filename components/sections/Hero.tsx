@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import LiveCountdown from "@/components/ui/LiveCountdown";
 import { REGISTER_URL } from "@/lib/data";

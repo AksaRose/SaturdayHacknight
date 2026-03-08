@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import HackNightCard from "@/components/ui/HackNightCard";
 import { upcomingNights } from "@/lib/data";
 

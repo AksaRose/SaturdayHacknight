@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import ProjectBentoGrid from "@/components/ui/ProjectBentoGrid";
 import { projects } from "@/lib/data";
 

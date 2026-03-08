@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
   --color-background: #090909;
   --color-surface: #111111;
   --color-surface-elevated: #1a1a1a;
@@ -12,15 +11,14 @@
   --color-muted: #666666;
   --color-white: #ffffff;
 
-  /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "Courier New", monospace;
 
-  /* Border radius */
   --radius-card: 12px;
   --radius-button: 8px;
 }
 
+/* ─── Base ─────────────────────────────────────────────────────────────── */
 @layer base {
   *,
   *::before,
@@ -32,15 +30,22 @@
 
   html {
     scroll-behavior: smooth;
+    /* Prevent layout shift when scrollbar appears */
+    scrollbar-gutter: stable;
   }
 
   body {
     background-color: #090909;
     color: #ffffff;
     font-family: var(--font-sans);
+    font-size: 1rem; /* 16px — minimum for mobile readability */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Faster tap response on iOS */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   a {
@@ -53,87 +58,223 @@
     color: #000000;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4 {
     letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  /* Ensure images don't overflow */
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Remove list styling for nav lists */
+  nav ul, nav ol {
+    list-style: none;
   }
 }
 
+/* ─── Focus — Visible, high-contrast, keyboard accessible ────────────── */
+@layer base {
+  /* Show focus ring only on keyboard navigation, not on mouse click */
+  :focus-visible {
+    outline: 2px solid #00ff87;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Stronger focus for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #00ff87;
+    outline-offset: 3px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px rgba(0, 255, 135, 0.2);
+  }
+}
+
+/* ─── Reduced Motion — Critical for accessibility ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Framer Motion respects this via useReducedMotion, but belt-and-suspenders */
+  [data-framer-appear-id],
+  [style*="transform"],
+  [style*="opacity"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────────── */
 @layer utilities {
   .font-mono {
     font-family: var(--font-mono);
   }
 
+  /* Glassmorphism — disabled on mobile for GPU perf */
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
 
-  .text-neon-green {
-    color: #00ff87;
+  @media (min-width: 768px) {
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
   }
 
-  .text-neon-cyan {
-    color: #00d4ff;
+  /* Neon colours */
+  .text-neon-green { color: #00ff87; }
+  .text-neon-cyan  { color: #00d4ff; }
+  .text-neon-amber { color: #ffb800; }
+  .text-muted      { color: #888888; } /* bumped from #666 → WCAG AA on dark bg */
+
+  /* Glow effects — disabled on mobile (perf) */
+  @media (min-width: 768px) {
+    .glow-green {
+      box-shadow: 0 0 20px rgba(0, 255, 135, 0.4),
+        0 0 60px rgba(0, 255, 135, 0.15);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    }
   }
 
-  .text-neon-amber {
-    color: #ffb800;
-  }
+  .bg-surface          { background-color: #111111; }
+  .bg-surface-elevated { background-color: #1a1a1a; }
+  .border-subtle       { border-color: rgba(255, 255, 255, 0.08); }
 
-  .text-muted {
-    color: #666666;
-  }
-
-  .glow-green {
-    box-shadow: 0 0 20px rgba(0, 255, 135, 0.4),
-      0 0 60px rgba(0, 255, 135, 0.15);
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-  }
-
-  .bg-surface {
-    background-color: #111111;
-  }
-
-  .bg-surface-elevated {
-    background-color: #1a1a1a;
-  }
-
-  .border-subtle {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  /* Animated grid background */
+  /* Grid background — lighter on mobile */
   .grid-bg {
     background-image: linear-gradient(
-        rgba(255, 255, 255, 0.03) 1px,
+        rgba(255, 255, 255, 0.02) 1px,
         transparent 1px
       ),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
-  /* Radial spotlight */
-  .spotlight {
-    background: radial-gradient(
-      ellipse 80% 60% at 50% 0%,
-      rgba(0, 255, 135, 0.06) 0%,
-      transparent 70%
-    );
+  @media (min-width: 768px) {
+    .grid-bg {
+      background-image: linear-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        ),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
   }
 
+  /* Radial spotlight — skip on mobile */
+  .spotlight {
+    background: none;
+  }
   .spotlight-cyan {
-    background: radial-gradient(
-      ellipse 80% 60% at 50% 50%,
-      rgba(0, 212, 255, 0.05) 0%,
-      transparent 70%
-    );
+    background: none;
+  }
+
+  @media (min-width: 768px) {
+    .spotlight {
+      background: radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        rgba(0, 255, 135, 0.06) 0%,
+        transparent 70%
+      );
+    }
+    .spotlight-cyan {
+      background: radial-gradient(
+        ellipse 80% 60% at 50% 50%,
+        rgba(0, 212, 255, 0.05) 0%,
+        transparent 70%
+      );
+    }
+  }
+
+  /* Touch target — min 44×44px as per WCAG 2.5.5 */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Skip link — visible only on focus */
+  .skip-link {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #00ff87;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid #000;
+    outline-offset: 2px;
+  }
+
+  /* Visually hidden but accessible to screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090909;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333;
   }
 }

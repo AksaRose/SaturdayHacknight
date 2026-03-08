@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { CalendarDays, Code2, ArrowRight, Users } from "lucide-react";
 import type { HackNight } from "@/lib/data";
 import { REGISTER_URL } from "@/lib/data";

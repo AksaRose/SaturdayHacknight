@@ -730,7 +730,74 @@ export const faq: FaqItem[] = [
   },
 ];
 
+export interface SocialShare {
+  name: string;
+  handle: string;
+  platform: "twitter" | "instagram" | "linkedin" | "blog";
+  content: string;
+  url: string;
+  night: string; // e.g. "SHN #02 — Build Your CLI"
+}
+
+export const socialShares: SocialShare[] = [
+  {
+    name: "Sara T",
+    handle: "@sarat_builds",
+    platform: "twitter",
+    content:
+      "Just shipped gitmind at @TinkerHubOrg's Saturday Hack Night — a CLI that reads your git log and generates a visual weekly digest. Built in 5 hrs. Still can't believe it works. #SaturdayHackNight",
+    url: "https://twitter.com",
+    night: "SHN #02 — Build Your CLI",
+  },
+  {
+    name: "Manu S",
+    handle: "@manu.builds",
+    platform: "instagram",
+    content:
+      "6 hours. One idea. A browser extension that actually works 🎉 FocusLens — built at #SaturdayHackNight. Swipe to see the build process from zero to shipped.",
+    url: "https://instagram.com",
+    night: "SHN #03 — Browser Extensions",
+  },
+  {
+    name: "Abhijith P",
+    handle: "Abhijith P",
+    platform: "linkedin",
+    content:
+      "I've been 'planning to build something' for 2 years. Then I joined TinkerHub's Saturday Hack Night on a whim — and shipped my first real project in the same evening. The constraint of 6 hours removes every excuse. Highly recommend.",
+    url: "https://linkedin.com",
+    night: "SHN #02 — Build Your CLI",
+  },
+  {
+    name: "Meera K",
+    handle: "meera.dev",
+    platform: "blog",
+    content:
+      "What I learned building an offline-first notes app in 6 hours — a write-up on local-first architecture, CRDTs, and why constraints make you ship faster.",
+    url: "https://dev.to",
+    night: "SHN #01 — Local-First Apps",
+  },
+  {
+    name: "Rohan M",
+    handle: "@rohan_tinkers",
+    platform: "twitter",
+    content:
+      "PeerDocs is live — peer-to-peer collaborative doc editor with zero server. Built solo at SHN #01. Took the last 2 hours just to make CRDTs not break. Worth it. #SaturdayHackNight @TinkerHubOrg",
+    url: "https://twitter.com",
+    night: "SHN #01 — Local-First Apps",
+  },
+  {
+    name: "Nadia K",
+    handle: "@nadiakodes",
+    platform: "instagram",
+    content:
+      "envguard — a CLI that scans your .env files for secrets accidentally in git history. Built at @TinkerHubOrg Saturday Hack Night with my partner Vikram. Proud of this one 🔐 #BuildInPublic",
+    url: "https://instagram.com",
+    night: "SHN #02 — Build Your CLI",
+  },
+];
+
 export const REGISTER_URL = "https://hub.tinkerhub.org";
 export const DISCORD_URL = "https://discord.gg/tinkerhub";
 export const TINKERSPACE_MAPS_URL =
   "https://maps.google.com/?q=TinkerSpace+Kochi";
+export const STICKERS_URL = "/saturday-hack-night/stickers/";

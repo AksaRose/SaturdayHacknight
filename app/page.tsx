@@ -15,7 +15,7 @@ import FAQ from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
-    <main className="min-h-screen" style={{ backgroundColor: "#090909" }}>
+    <main id="main-content" className="min-h-screen" style={{ backgroundColor: "#090909" }}>
       <Navbar />
       <Hero />
       <Philosophy />

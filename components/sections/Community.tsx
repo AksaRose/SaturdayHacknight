@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "@/lib/motion";
+import { ArrowRight, Package } from "lucide-react";
 import TerminalBox from "@/components/ui/TerminalBox";
-import { DISCORD_URL } from "@/lib/data";
+import { DISCORD_URL, STICKERS_URL } from "@/lib/data";
 
 export default function Community() {
   return (
@@ -44,7 +44,7 @@ export default function Community() {
 
         {/* CTA */}
         <motion.div
-          className="mt-8"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -58,6 +58,13 @@ export default function Community() {
           >
             Join Discord
             <ArrowRight size={18} />
+          </a>
+          <a
+            href={STICKERS_URL}
+            className="inline-flex items-center gap-2 border border-[#00ff87]/30 text-[#00ff87] font-semibold text-base px-8 py-4 rounded-lg hover:bg-[#00ff87]/10 transition-all duration-300"
+          >
+            <Package size={18} />
+            Claim Your Sticker Pack
           </a>
         </motion.div>
       </div>

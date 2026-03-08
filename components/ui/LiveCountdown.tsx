@@ -26,11 +26,11 @@ function pad(n: number) {
 
 function Digit({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="font-mono text-4xl md:text-5xl font-bold text-[#00ff87] tabular-nums leading-none">
+    <div className="flex flex-col items-center min-w-[2.5rem]">
+      <div className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff87] tabular-nums leading-none">
         {pad(value)}
       </div>
-      <div className="font-mono text-xs text-[#666666] uppercase tracking-widest mt-1">
+      <div className="font-mono text-[10px] sm:text-xs text-[#666666] uppercase tracking-widest mt-1">
         {label}
       </div>
     </div>
@@ -60,13 +60,13 @@ export default function LiveCountdown() {
         {nextNight.date} · 6:00 PM IST
       </p>
       {/* Digits */}
-      <div className="flex items-center gap-4 md:gap-6">
+      <div className="flex items-center gap-2 sm:gap-4 md:gap-6" aria-live="polite" aria-atomic="true" aria-label={`${timeLeft.days} days ${timeLeft.hours} hours ${timeLeft.minutes} minutes ${timeLeft.seconds} seconds`}>
         <Digit value={timeLeft.days} label="days" />
-        <span className="font-mono text-3xl text-[#666666] mb-4">:</span>
+        <span className="font-mono text-2xl sm:text-3xl text-[#666666] mb-4" aria-hidden="true">:</span>
         <Digit value={timeLeft.hours} label="hrs" />
-        <span className="font-mono text-3xl text-[#666666] mb-4">:</span>
+        <span className="font-mono text-2xl sm:text-3xl text-[#666666] mb-4" aria-hidden="true">:</span>
         <Digit value={timeLeft.minutes} label="min" />
-        <span className="font-mono text-3xl text-[#666666] mb-4">:</span>
+        <span className="font-mono text-2xl sm:text-3xl text-[#666666] mb-4" aria-hidden="true">:</span>
         <Digit value={timeLeft.seconds} label="sec" />
       </div>
     </div>

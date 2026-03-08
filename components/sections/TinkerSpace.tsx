@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { MapPin, Clock, Wifi, Coffee, Zap, Users, ArrowRight } from "lucide-react";
 import { TINKERSPACE_MAPS_URL } from "@/lib/data";
 

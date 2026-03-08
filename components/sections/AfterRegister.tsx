@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { Mail, MessageSquare, Lightbulb, Github, Moon, Trophy } from "lucide-react";
 
 const steps = [

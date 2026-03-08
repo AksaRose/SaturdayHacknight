@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { ImageIcon } from "lucide-react";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { testimonials } from "@/lib/data";

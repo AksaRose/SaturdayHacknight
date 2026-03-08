@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 import { Plus, Minus } from "lucide-react";
 import { faq } from "@/lib/data";
 
 function FAQItem({ item, index }: { item: { question: string; answer: string }; index: number }) {
   const [open, setOpen] = useState(false);
+  const panelId = `faq-panel-${index}`;
+  const buttonId = `faq-btn-${index}`;
 
   return (
     <motion.div
@@ -17,13 +19,16 @@ function FAQItem({ item, index }: { item: { question: string; answer: string }; 
       viewport={{ once: true }}
     >
       <button
-        className="w-full flex items-center justify-between gap-4 py-5 text-left group"
+        id={buttonId}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className="w-full flex items-center justify-between gap-4 py-5 text-left group touch-target"
         onClick={() => setOpen(!open)}
       >
         <span className={`font-semibold text-base transition-colors duration-200 ${open ? "text-[#00ff87]" : "text-white group-hover:text-[#00ff87]"}`}>
           {item.question}
         </span>
-        <span className="shrink-0 text-[#666666]">
+        <span className="shrink-0 text-[#666666]" aria-hidden="true">
           {open ? <Minus size={16} /> : <Plus size={16} />}
         </span>
       </button>
@@ -31,6 +36,9 @@ function FAQItem({ item, index }: { item: { question: string; answer: string }; 
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

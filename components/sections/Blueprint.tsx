@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { ClipboardList, Code2, Trophy } from "lucide-react";
 import StepConnector from "@/components/ui/StepConnector";
 
