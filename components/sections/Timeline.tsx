@@ -17,14 +17,37 @@ export default function Timeline() {
           viewport={{ once: true }}
         >
           <p className="font-mono text-xs text-[#00ff87] uppercase tracking-widest mb-3">
-            Season 01
+            Season 02 · 2026
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">
             Upcoming Hack Nights
           </h2>
           <p className="text-[#666666] text-base max-w-xl mx-auto">
-            5 online build sprints, every second Saturday. Register for any — or all of them.
+            5 online build sprints, every second Saturday.{" "}
+            <span className="text-white font-medium">
+              Join any single night — you don&apos;t need to attend all 5.
+            </span>
           </p>
+        </motion.div>
+
+        {/* "Any night counts" callout */}
+        <motion.div
+          className="mb-8 mx-auto max-w-2xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+            {["Free to join", "Solo or team of 2", "Any skill level", "Push to GitHub by midnight"].map((tag) => (
+              <span
+                key={tag}
+                className="border border-white/10 text-[#666666] px-3 py-1.5 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
         {/* Finale callout */}
@@ -43,7 +66,7 @@ export default function Timeline() {
               24-hour Hackathon · TinkerSpace Kochi
             </p>
             <p className="text-[#666666] text-sm">
-              For top builders from the 5 online sprints
+              Top teams from any of the 5 nights get invited — attend even one to qualify
             </p>
           </div>
           <span className="font-mono text-xs border border-[#ffb800]/30 text-[#ffb800] bg-[#ffb800]/5 px-3 py-1.5 rounded-full shrink-0">

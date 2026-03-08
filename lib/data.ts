@@ -1,9 +1,14 @@
-export interface HackNight {
-  id: number;
-  theme: string;
-  date: string;
-  stack: string;
-  difficulty: "Beginner" | "Intermediate" | "Advanced";
+export interface Mentor {
+  name: string;
+  role: string;
+  github?: string;
+  twitter?: string;
+}
+
+export interface Resource {
+  title: string;
+  url: string;
+  type: "docs" | "video" | "repo" | "article";
 }
 
 export interface Project {
@@ -16,17 +21,18 @@ export interface Project {
   liveUrl?: string;
 }
 
-export interface Mentor {
-  name: string;
-  role: string;
-  github?: string;
-  twitter?: string;
-}
-
-export interface Resource {
-  title: string;
-  url: string;
-  type: "docs" | "video" | "repo" | "article";
+export interface HackNight {
+  id: number;
+  slug: string;
+  theme: string;
+  date: string;
+  isoDate: string; // for countdown targeting
+  stack: string;
+  difficulty: "Beginner" | "Intermediate" | "Advanced";
+  about: string;
+  challenge: string; // what attendees actually build
+  mentors: Mentor[];
+  starterResources: Resource[];
 }
 
 export interface PastHackNight {
@@ -50,43 +56,259 @@ export interface Testimonial {
   quote: string;
 }
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+// ─── Upcoming Hack Nights ───────────────────────────────────────────────────
+
 export const upcomingNights: HackNight[] = [
   {
     id: 1,
+    slug: "shn-s2-001-agentic-web",
     theme: "The Agentic Web",
-    date: "March 14",
+    date: "March 14, 2026",
+    isoDate: "2026-03-14T12:30:00Z", // 6:00 PM IST = 12:30 UTC
     stack: "LangChain, Next.js",
     difficulty: "Intermediate",
+    about:
+      "AI agents don't just answer questions — they take actions, call APIs, browse the web, and chain decisions together. This hack night is about building something that acts on your behalf: a research agent, a coding assistant, a task automator.",
+    challenge:
+      "Build a working AI agent that takes a goal as input and completes at least one multi-step task autonomously. Push to GitHub by midnight.",
+    mentors: [
+      {
+        name: "Nithish Raj",
+        role: "AI Engineer, LLM applications",
+        github: "nithishraj",
+        twitter: "nithishraj",
+      },
+      {
+        name: "Sherin Thomas",
+        role: "Full-stack developer, agentic systems",
+        github: "sherinthomas",
+      },
+    ],
+    starterResources: [
+      {
+        title: "LangChain Quickstart",
+        url: "https://python.langchain.com/docs/get_started/quickstart",
+        type: "docs",
+      },
+      {
+        title: "Build an AI Agent from Scratch — YouTube",
+        url: "https://www.youtube.com/results?search_query=build+ai+agent+langchain",
+        type: "video",
+      },
+      {
+        title: "LangGraph — Stateful agent framework",
+        url: "https://langchain-ai.github.io/langgraph/",
+        type: "docs",
+      },
+      {
+        title: "Next.js AI SDK by Vercel",
+        url: "https://sdk.vercel.ai/docs",
+        type: "docs",
+      },
+    ],
   },
   {
     id: 2,
+    slug: "shn-s2-002-creative-coding",
     theme: "Creative Coding",
-    date: "March 28",
-    stack: "Canvas, Three.js",
+    date: "March 28, 2026",
+    isoDate: "2026-03-28T12:30:00Z",
+    stack: "Canvas, Three.js, p5.js",
     difficulty: "Beginner",
+    about:
+      "Code as a medium for art. Creative coding is about making things that are beautiful, strange, or surprising — generative patterns, interactive visuals, data art, audio visualizers. No design experience needed. Just curiosity.",
+    challenge:
+      "Build something visual and interactive using canvas, WebGL, or any creative coding library. It should respond to user input or generate something new each time it runs.",
+    mentors: [
+      {
+        name: "Amal Krishnan",
+        role: "Creative coder, generative artist",
+        github: "amalk",
+        twitter: "amalk",
+      },
+    ],
+    starterResources: [
+      {
+        title: "p5.js — Creative coding for beginners",
+        url: "https://p5js.org/get-started/",
+        type: "docs",
+      },
+      {
+        title: "Three.js Journey — Free intro",
+        url: "https://threejs-journey.com",
+        type: "video",
+      },
+      {
+        title: "The Coding Train — Creative Coding YouTube",
+        url: "https://www.youtube.com/@TheCodingTrain",
+        type: "video",
+      },
+      {
+        title: "Canvas API — MDN",
+        url: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
+        type: "docs",
+      },
+    ],
   },
   {
     id: 3,
+    slug: "shn-s2-003-hardware-sync",
     theme: "Hardware Sync",
-    date: "April 11",
-    stack: "MQTT, ESP32",
+    date: "April 11, 2026",
+    isoDate: "2026-04-11T12:30:00Z",
+    stack: "MQTT, ESP32, Arduino",
     difficulty: "Advanced",
+    about:
+      "Make the physical world talk to the digital one. This hack night is about building hardware-software systems — sensors that post data to the web, apps that control physical devices, or IoT dashboards that visualize real-world readings.",
+    challenge:
+      "Build a system where a physical device (ESP32, Arduino, Raspberry Pi) communicates with a web interface. Something in the real world should change something on screen, or vice versa.",
+    mentors: [
+      {
+        name: "Bibin Wilson",
+        role: "Embedded systems engineer",
+        github: "bibinwilson",
+        twitter: "bibinwilson",
+      },
+      {
+        name: "Asha Mol",
+        role: "IoT developer, hardware hacker",
+        github: "ashamol",
+      },
+    ],
+    starterResources: [
+      {
+        title: "ESP32 Getting Started — Random Nerd Tutorials",
+        url: "https://randomnerdtutorials.com/getting-started-with-esp32/",
+        type: "article",
+      },
+      {
+        title: "MQTT Essentials",
+        url: "https://www.hivemq.com/mqtt-essentials/",
+        type: "article",
+      },
+      {
+        title: "PlatformIO — IDE for embedded development",
+        url: "https://platformio.org",
+        type: "docs",
+      },
+      {
+        title: "Node-RED — Low-code IoT wiring",
+        url: "https://nodered.org",
+        type: "docs",
+      },
+    ],
   },
   {
     id: 4,
+    slug: "shn-s2-004-ai-at-the-edge",
     theme: "AI at the Edge",
-    date: "April 25",
-    stack: "TensorFlow Lite, Raspberry Pi",
+    date: "April 25, 2026",
+    isoDate: "2026-04-25T12:30:00Z",
+    stack: "TensorFlow Lite, ONNX, Raspberry Pi",
     difficulty: "Advanced",
+    about:
+      "Run ML models directly on devices — no cloud, no latency, no privacy concerns. Edge AI is exploding: face detection on a Pi, wake word detection on a microcontroller, image classification on a phone. This hack night explores that frontier.",
+    challenge:
+      "Deploy a machine learning model on an edge device (Raspberry Pi, phone, or browser via WebAssembly) that runs inference locally without calling an external API.",
+    mentors: [
+      {
+        name: "Jithin George",
+        role: "ML engineer, edge inference",
+        github: "jithingeorge",
+      },
+    ],
+    starterResources: [
+      {
+        title: "TensorFlow Lite for Microcontrollers",
+        url: "https://www.tensorflow.org/lite/microcontrollers",
+        type: "docs",
+      },
+      {
+        title: "ONNX Runtime — Run models anywhere",
+        url: "https://onnxruntime.ai",
+        type: "docs",
+      },
+      {
+        title: "MediaPipe — On-device ML by Google",
+        url: "https://developers.google.com/mediapipe",
+        type: "docs",
+      },
+      {
+        title: "Transformers.js — Run HuggingFace in browser",
+        url: "https://huggingface.co/docs/transformers.js",
+        type: "docs",
+      },
+    ],
   },
   {
     id: 5,
+    slug: "shn-s2-005-open-source-sprint",
     theme: "The Open Source Sprint",
-    date: "May 9",
+    date: "May 9, 2026",
+    isoDate: "2026-05-09T12:30:00Z",
     stack: "Any",
     difficulty: "Beginner",
+    about:
+      "Open source is how most of the internet runs. This hack night is about giving back — find a project you use, find an issue, and fix it. Or start something new and make it open from day one. Stack is completely open.",
+    challenge:
+      "Merge a pull request into an existing open source project OR publish a new open source project with a proper README, license, and working code. Beginner-friendly issues count.",
+    mentors: [
+      {
+        name: "Kailash Nadh",
+        role: "CTO at Zerodha, open source advocate",
+        github: "knadh",
+        twitter: "kailashnadh",
+      },
+      {
+        name: "Rijul Singh",
+        role: "Open source contributor",
+        github: "rijulsingh",
+      },
+    ],
+    starterResources: [
+      {
+        title: "First Contributions — Step by step guide",
+        url: "https://firstcontributions.github.io",
+        type: "article",
+      },
+      {
+        title: "Good First Issues — GitHub",
+        url: "https://goodfirstissue.dev",
+        type: "docs",
+      },
+      {
+        title: "How to write a good README",
+        url: "https://www.makeareadme.com",
+        type: "article",
+      },
+      {
+        title: "Choose an Open Source License",
+        url: "https://choosealicense.com",
+        type: "article",
+      },
+    ],
   },
 ];
+
+// The next upcoming night — used for countdown
+export function getNextNight(): HackNight {
+  const now = Date.now();
+  const next = upcomingNights.find(
+    (n) => new Date(n.isoDate).getTime() > now
+  );
+  return next ?? upcomingNights[upcomingNights.length - 1];
+}
+
+export function getNextNightDate(): Date {
+  return new Date(getNextNight().isoDate);
+}
+
+// ─── Past Hack Nights ───────────────────────────────────────────────────────
 
 export const pastHackNights: PastHackNight[] = [
   {
@@ -159,7 +381,8 @@ export const pastHackNights: PastHackNight[] = [
         creator: "Divya S",
         tags: ["SQLite", "Vue.js", "PWA"],
         github: "https://github.com/divyas/localcart",
-        description: "Shopping cart that works without internet, syncs when online.",
+        description:
+          "Shopping cart that works without internet, syncs when online.",
       },
       {
         name: "PeerDocs",
@@ -167,14 +390,16 @@ export const pastHackNights: PastHackNight[] = [
         team: ["Rohan M", "Arjun T"],
         tags: ["Y.js", "Next.js", "WebRTC"],
         github: "https://github.com/rohanm/peerdocs",
-        description: "Peer-to-peer collaborative document editor, no server needed.",
+        description:
+          "Peer-to-peer collaborative document editor, no server needed.",
       },
       {
         name: "OfflineBoard",
         creator: "Priya V",
         tags: ["IndexedDB", "Canvas", "TypeScript"],
         github: "https://github.com/priyav/offlineboard",
-        description: "Kanban board that persists locally and syncs across tabs.",
+        description:
+          "Kanban board that persists locally and syncs across tabs.",
       },
       {
         name: "SyncWeather",
@@ -270,7 +495,8 @@ export const pastHackNights: PastHackNight[] = [
         team: ["Nadia K", "Vikram S"],
         tags: ["Python", "Security", "CLI"],
         github: "https://github.com/nadiak/envguard",
-        description: "Scans .env files for secrets accidentally committed to git.",
+        description:
+          "Scans .env files for secrets accidentally committed to git.",
       },
       {
         name: "taskr",
@@ -284,14 +510,16 @@ export const pastHackNights: PastHackNight[] = [
         creator: "Anjali R",
         tags: ["Python", "Log Parsing", "CLI"],
         github: "https://github.com/anjali/logwatch",
-        description: "Real-time log parser with color-coded error highlighting.",
+        description:
+          "Real-time log parser with color-coded error highlighting.",
       },
       {
         name: "portman",
         creator: "Dev C",
         tags: ["Node.js", "Networking", "CLI"],
         github: "https://github.com/devc/portman",
-        description: "CLI port manager — find, kill, and monitor running processes.",
+        description:
+          "CLI port manager — find, kill, and monitor running processes.",
       },
       {
         name: "dotfiles-sync",
@@ -299,7 +527,8 @@ export const pastHackNights: PastHackNight[] = [
         team: ["Aryan G", "Preethi L"],
         tags: ["Bash", "Git", "CLI"],
         github: "https://github.com/aryag/dotfiles-sync",
-        description: "One-command dotfiles backup and restore across machines.",
+        description:
+          "One-command dotfiles backup and restore across machines.",
       },
     ],
   },
@@ -366,7 +595,8 @@ export const pastHackNights: PastHackNight[] = [
         team: ["Manu S", "Lekha R"],
         tags: ["Chrome Extension", "JavaScript", "AI"],
         github: "https://github.com/manus/focuslens",
-        description: "Blocks distracting content using local AI pattern detection.",
+        description:
+          "Blocks distracting content using local AI pattern detection.",
       },
       {
         name: "TabMapper",
@@ -395,13 +625,32 @@ export const pastHackNights: PastHackNight[] = [
         creator: "Ashwin T",
         tags: ["Browser Extension", "CSS", "Typography"],
         github: "https://github.com/ashwint/readingmode",
-        description: "Enhanced reader mode with font, spacing, and color controls.",
+        description:
+          "Enhanced reader mode with font, spacing, and color controls.",
       },
     ],
   },
 ];
 
-export const projects: Project[] = [
+// ─── Other content ───────────────────────────────────────────────────────────
+
+export const testimonials = [
+  {
+    name: "Abhijith",
+    quote:
+      "I built my first deployed app in 6 hours. The vibe is unmatched.",
+  },
+  {
+    name: "Sara",
+    quote: "TinkerSpace Kochi felt like a second home during the finale.",
+  },
+  {
+    name: "Rohan",
+    quote: "SHN pushed me to stop procrastinating and actually ship.",
+  },
+];
+
+export const projects = [
   {
     name: "LED-Synced Rubik's Cube",
     creator: "Akhil",
@@ -428,31 +677,60 @@ export const projects: Project[] = [
   },
 ];
 
-export const testimonials: Testimonial[] = [
+export const faq: FaqItem[] = [
   {
-    name: "Abhijith",
-    quote:
-      "I built my first deployed app in 6 hours. The vibe is unmatched.",
+    question: "Is it free?",
+    answer:
+      "Yes, completely. There is no registration fee, no subscription, no catch. Saturday Hack Night is a TinkerHub Foundation initiative — free and open to everyone.",
   },
   {
-    name: "Sara",
-    quote: "TinkerSpace Kochi felt like a second home during the finale.",
+    question: "Do I need prior experience?",
+    answer:
+      "No. Each hack night has a difficulty rating — Beginner nights are genuinely beginner-friendly. If you can write a for-loop, you can ship something. The point is to learn by doing, not to show off what you already know.",
   },
   {
-    name: "Rohan",
-    quote: "SHN pushed me to stop procrastinating and actually ship.",
+    question: "Can I join if I missed the first few nights?",
+    answer:
+      "Yes — drop in to any single hack night. You don't need to attend all 5. Each event is self-contained with its own theme and challenge. Attending even one puts you in the pool for the offline finale.",
+  },
+  {
+    question: "What counts as a valid submission?",
+    answer:
+      "A working prototype pushed to a public GitHub repo before midnight. It doesn't need to be polished, production-ready, or even feature-complete. A README that clearly explains what you built and a commit showing meaningful work is enough. Effort counts.",
+  },
+  {
+    question: "Can I use any language, framework, or hardware?",
+    answer:
+      "Absolutely. SHN is for tech makers — hardware and software, everything is in scope. Each hack night suggests a stack to help you get started, but it's never a rule. Build with Arduino, ESP32, a Raspberry Pi, a browser, a server, a CLI — whatever fits your idea. We explore depth across all of tech, not just web frameworks.",
+  },
+  {
+    question: "How are projects selected for the finale?",
+    answer:
+      "The TinkerHub team reviews all submissions after each hack night. We look for creativity, effort, and completeness — not polish. Projects that attempt something ambitious and ship something real are the ones that get noticed. Top teams from the 5 online nights get invitations to the offline finale.",
+  },
+  {
+    question: "My whole team gets invited to the offline finale?",
+    answer:
+      "Yes. If your project is selected, every member of your team (up to 2 people) receives the invitation. Travel and accommodation details are shared with selected teams individually.",
+  },
+  {
+    question: "What if I don't finish by midnight?",
+    answer:
+      "Midnight is a hard cut-off for submissions — we can't make exceptions or the leaderboard would be meaningless. But even an incomplete project is worth pushing. A half-built thing that shows direction and effort is better than nothing.",
+  },
+  {
+    question: "Where do I get help during the hack night?",
+    answer:
+      "The SHN Discord is live during every hack night with mentors and other builders. If you're stuck, ask — someone will help. The community is genuinely collaborative, not competitive.",
+  },
+  {
+    question: "What is TinkerSpace Kochi?",
+    answer:
+      "TinkerSpace is TinkerHub's physical maker space in Kochi, Kerala — a lab, community hub, and hackathon venue. The SHN finale is a 24-hour in-person hackathon held there. Selected teams get full access to the space, tools, and mentors for the day.",
   },
 ];
 
 export const REGISTER_URL = "https://hub.tinkerhub.org";
 export const DISCORD_URL = "https://discord.gg/tinkerhub";
-
-export function getNextSaturdayAt6PM(): Date {
-  const now = new Date();
-  const dayOfWeek = now.getDay();
-  const daysUntilSaturday = ((6 - dayOfWeek + 7) % 7) || 7;
-  const nextSat = new Date(now);
-  nextSat.setDate(now.getDate() + daysUntilSaturday);
-  nextSat.setHours(18, 0, 0, 0);
-  return nextSat;
-}
+export const TINKERSPACE_MAPS_URL =
+  "https://maps.google.com/?q=TinkerSpace+Kochi";

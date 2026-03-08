@@ -26,9 +26,12 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Eyebrow */}
-        <motion.div {...fadeUp(0)}>
+        <motion.div {...fadeUp(0)} className="flex flex-wrap items-center justify-center gap-2">
           <span className="font-mono text-xs text-[#00ff87] tracking-widest uppercase border border-[#00ff87]/30 px-3 py-1.5 rounded-full bg-[#00ff87]/5">
             TinkerHub Foundation presents
+          </span>
+          <span className="font-mono text-xs text-[#666666] border border-white/10 px-3 py-1.5 rounded-full">
+            Free · Open to all · No experience needed
           </span>
         </motion.div>
 

@@ -12,9 +12,9 @@ const principles = [
   },
   {
     icon: Compass,
-    title: "Explore Different Domains",
+    title: "Explore Depth, Not Breadth",
     description:
-      "Each hack night tackles a different stack — hardware, AI, web, CLI. Stay curious. You don't need to be an expert to explore.",
+      "Each hack night goes deep into one domain — hardware, AI, web, CLI, creative coding. We're tech makers: hardware and software, anything goes. Stack is always a suggestion, never a rule.",
   },
   {
     icon: Zap,

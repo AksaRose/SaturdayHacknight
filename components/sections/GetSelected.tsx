@@ -15,9 +15,9 @@ const steps = [
   {
     icon: Users,
     step: "02",
-    title: "Build as a Team",
+    title: "Build — Solo or with One Partner",
     description:
-      "Hack solo or with a team of up to 3. Build a project in the given stack and push it to GitHub by midnight.",
+      "Hack alone or with one teammate (max 2 per team). Use any language, framework, hardware, or API you want — the stack suggestion is a starting point, not a rule.",
   },
   {
     icon: Trophy,
