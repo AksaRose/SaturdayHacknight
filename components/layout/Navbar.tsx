@@ -7,7 +7,8 @@ import { REGISTER_URL } from "@/lib/data";
 const navLinks = [
   { label: "How It Works", href: "#blueprint" },
   { label: "Timeline", href: "#timeline" },
-  { label: "Projects", href: "#hall-of-fame" },
+  { label: "Past Nights", href: "/saturday-hack-night/archive/" },
+  { label: "Campus", href: "/saturday-hack-night/campus/" },
   { label: "Community", href: "#community" },
 ];
 
