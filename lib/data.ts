@@ -67,13 +67,13 @@ export const upcomingNights: HackNight[] = [
   {
     id: 1,
     slug: "shn-s2-001-agentic-web",
-    theme: "The Agentic Web",
+    theme: "LangGraph",
     date: "March 14, 2026",
     isoDate: "2026-03-14T12:30:00Z", // 6:00 PM IST = 12:30 UTC
     stack: "LangChain, Next.js",
-    difficulty: "Intermediate",
+    difficulty: "Beginner",
     about:
-      "AI agents don't just answer questions — they take actions, call APIs, browse the web, and chain decisions together. This hack night is about building something that acts on your behalf: a research agent, a coding assistant, a task automator.",
+      "LangGraph lets you wire up stateful, multi-step AI agents as graphs — mixing tools, memory, and branching logic instead of single prompts. This night is about learning how to design robust agent workflows that can recover from errors, coordinate subtasks, and actually ship something useful.",
     challenge:
       "Build a working AI agent that takes a goal as input and completes at least one multi-step task autonomously. Push to GitHub by midnight.",
     mentors: [
@@ -115,13 +115,13 @@ export const upcomingNights: HackNight[] = [
   {
     id: 2,
     slug: "shn-s2-002-creative-coding",
-    theme: "Creative Coding",
+    theme: "N8N",
     date: "March 28, 2026",
     isoDate: "2026-03-28T12:30:00Z",
     stack: "Canvas, Three.js, p5.js",
     difficulty: "Beginner",
     about:
-      "Code as a medium for art. Creative coding is about making things that are beautiful, strange, or surprising — generative patterns, interactive visuals, data art, audio visualizers. No design experience needed. Just curiosity.",
+      "n8n is a visual automation tool that lets you connect APIs, webhooks, and background jobs without rebuilding the same glue code every time. This night is about turning your ideas into real automations — from AI-powered workflows to everyday scripts — using nodes, triggers, and a bit of custom logic.",
     challenge:
       "Build something visual and interactive using canvas, WebGL, or any creative coding library. It should respond to user input or generate something new each time it runs.",
     mentors: [
@@ -158,13 +158,13 @@ export const upcomingNights: HackNight[] = [
   {
     id: 3,
     slug: "shn-s2-003-hardware-sync",
-    theme: "Hardware Sync",
+    theme: "CrewAI",
     date: "April 11, 2026",
     isoDate: "2026-04-11T12:30:00Z",
     stack: "MQTT, ESP32, Arduino",
-    difficulty: "Advanced",
+    difficulty: "Beginner",
     about:
-      "Make the physical world talk to the digital one. This hack night is about building hardware-software systems — sensors that post data to the web, apps that control physical devices, or IoT dashboards that visualize real-world readings.",
+      "CrewAI focuses on building teams of specialized agents that collaborate — researcher, planner, coder, reviewer — instead of a single all-purpose assistant. This night is about designing those roles, wiring up tools, and getting a small crew of agents to work together on one meaningful task.",
     challenge:
       "Build a system where a physical device (ESP32, Arduino, Raspberry Pi) communicates with a web interface. Something in the real world should change something on screen, or vice versa.",
     mentors: [
@@ -206,13 +206,13 @@ export const upcomingNights: HackNight[] = [
   {
     id: 4,
     slug: "shn-s2-004-ai-at-the-edge",
-    theme: "AI at the Edge",
+    theme: "Phi-3/Mistral",
     date: "April 25, 2026",
     isoDate: "2026-04-25T12:30:00Z",
     stack: "TensorFlow Lite, ONNX, Raspberry Pi",
-    difficulty: "Advanced",
+    difficulty: "Beginner",
     about:
-      "Run ML models directly on devices — no cloud, no latency, no privacy concerns. Edge AI is exploding: face detection on a Pi, wake word detection on a microcontroller, image classification on a phone. This hack night explores that frontier.",
+      "Phi-3 and Mistral are fast, open models that you can actually run and customize yourself — for chat, tools, and domain-specific assistants. This night is about getting a small model running in your stack, wrapping it with a simple API, and making it do one thing really well for your use case.",
     challenge:
       "Deploy a machine learning model on an edge device (Raspberry Pi, phone, or browser via WebAssembly) that runs inference locally without calling an external API.",
     mentors: [
@@ -248,13 +248,13 @@ export const upcomingNights: HackNight[] = [
   {
     id: 5,
     slug: "shn-s2-005-open-source-sprint",
-    theme: "The Open Source Sprint",
+    theme: "CodeLlama",
     date: "May 9, 2026",
     isoDate: "2026-05-09T12:30:00Z",
     stack: "Any",
     difficulty: "Beginner",
     about:
-      "Open source is how most of the internet runs. This hack night is about giving back — find a project you use, find an issue, and fix it. Or start something new and make it open from day one. Stack is completely open.",
+      "CodeLlama is a family of models tuned for understanding and generating code — great for scaffolding projects, refactoring, or building coding assistants. This night is about using CodeLlama to speed up your own hacking: from generating boilerplate to building tiny tools that help other developers.",
     challenge:
       "Merge a pull request into an existing open source project OR publish a new open source project with a proper README, license, and working code. Beginner-friendly issues count.",
     mentors: [

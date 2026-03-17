@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "@/lib/motion";
-import { CalendarDays, Code2, ArrowRight, Users } from "lucide-react";
+import { CalendarDays, ArrowRight, Users } from "lucide-react";
 import type { HackNight } from "@/lib/data";
 import { REGISTER_URL } from "@/lib/data";
 
@@ -18,7 +18,6 @@ const difficultyConfig = {
 
 export default function HackNightCard({ event, index }: HackNightCardProps) {
   const diff = difficultyConfig[event.difficulty];
-  const stacks = event.stack.split(", ");
 
   return (
     <motion.div
@@ -57,19 +56,6 @@ export default function HackNightCard({ event, index }: HackNightCardProps) {
         <span className="font-mono text-xs">{event.date} · 6:00 PM IST</span>
       </div>
 
-      {/* Stack tags */}
-      <div className="flex items-start gap-2 flex-wrap">
-        <Code2 size={13} className="text-[#666666] mt-0.5 shrink-0" />
-        {stacks.map((s) => (
-          <span
-            key={s}
-            className="font-mono text-xs bg-white/5 border border-white/8 rounded px-2 py-0.5 text-[#00d4ff]"
-          >
-            {s.trim()}
-          </span>
-        ))}
-      </div>
-
       {/* Team size */}
       <div className="flex items-center gap-1.5 text-[#444444]">
         <Users size={12} />
@@ -96,7 +82,9 @@ export default function HackNightCard({ event, index }: HackNightCardProps) {
           <ArrowRight size={12} />
         </a>
         <a
-          href={`/saturday-hack-night/events/${event.slug}/`}
+          href="https://tinkerhub-foundation.notion.site/Saturday-Hack-Night-Fast-API-23dbd5ba1a8680769c04c02be5768c00"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 font-mono text-xs text-[#666666] hover:text-white transition-colors"
         >
           Event details

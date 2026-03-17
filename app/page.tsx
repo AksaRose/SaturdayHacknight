@@ -21,7 +21,7 @@ export default function Home() {
       <Philosophy />
       <Blueprint />
       <GetSelected />
-      <Timeline />
+      <Timeline/>
       <AfterRegister />
       <TinkerSpace />
       <PreviousNights />

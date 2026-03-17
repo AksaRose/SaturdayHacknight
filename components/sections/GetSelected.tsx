@@ -10,14 +10,14 @@ const steps = [
     step: "01",
     title: "Register & Attend",
     description:
-      "Sign up for any hack night. Show up on Saturday at 6 PM IST — online, no travel needed.",
+      "Sign up for any HackNight. Show up on Saturday at 6 PM IST — online, no travel needed.",
   },
   {
     icon: Users,
     step: "02",
     title: "Build — Solo or with One Partner",
     description:
-      "Hack alone or with one teammate (max 2 per team). Use any language, framework, hardware, or API you want — the stack suggestion is a starting point, not a rule.",
+      "Hack alone or with one teammate (max 2 per team). Build whatever you want — but it must use the provided stack and stay relevant to the given theme.",
   },
   {
     icon: Trophy,
@@ -48,7 +48,7 @@ export default function GetSelected() {
             <span className="text-[#ffb800]">Invited.</span>
           </h2>
           <p className="text-[#666666] text-base max-w-xl mx-auto">
-            There is no jury during the hack night. Just build something real,
+            There is no jury during the HackNight. Just build something real,
             push it to GitHub, and let your project speak for itself.
           </p>
         </motion.div>
@@ -98,7 +98,7 @@ export default function GetSelected() {
             <p className="text-[#666666] text-sm max-w-lg">
               If your project gets selected, every member of your team receives
               an invitation to the 24-hour physical hackathon at TinkerSpace
-              Kochi. Travel stipend details shared separately.
+              Kochi.
             </p>
           </div>
           <a
@@ -131,7 +131,7 @@ export default function GetSelected() {
               Winners get the full TinkerHub pack
             </h3>
             <p className="text-[#666666] text-sm">
-              Best project of each hack night gets an exclusive goodies pack — TinkerHub t-shirt, SHN sticker set, and surprise merch. Shipped to your door.
+              Best project of Physical HackNight gets an exclusive goodies pack — TinkerHub t-shirt, SHN sticker set, and surprise merch. Shipped to your door.
             </p>
           </div>
           <a

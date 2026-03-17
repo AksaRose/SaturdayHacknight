@@ -17,7 +17,7 @@ export default function Timeline() {
           viewport={{ once: true }}
         >
           <p className="font-mono text-xs text-[#00ff87] uppercase tracking-widest mb-3">
-            Season 02 · 2026
+            Season 01 · 2026
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">
             Upcoming Hack Nights
