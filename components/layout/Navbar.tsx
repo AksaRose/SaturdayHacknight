@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="font-mono text-xl font-bold text-[#00ff87]">
-            SHN
+            Saturday HackNight
             <span className="text-white/30 text-sm font-normal ml-2">
               by TinkerHub
             </span>
@@ -73,8 +73,9 @@ export default function Navbar() {
             >
               Register Now
             </a>
+            {/* Small-screen hamburger */}
             <button
-              className="md:hidden text-white/60 hover:text-white transition-colors touch-target"
+              className="md:hidden text-white/60 hover:text-white transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
