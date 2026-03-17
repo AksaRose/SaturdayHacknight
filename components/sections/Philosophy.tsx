@@ -14,7 +14,7 @@ const principles = [
     icon: Compass,
     title: "Explore Depth, Not Breadth",
     description:
-      "Each hack night goes deep into one domain — hardware, AI, web, CLI, creative coding. We're tech makers: hardware and software, anything goes. Stack is always a suggestion, never a rule.",
+      "Each HackNight goes deep into one domain — hardware, AI, web, CLI, creative coding. We're tech makers: hardware and software, anything goes.",
   },
   {
     icon: Zap,
@@ -50,8 +50,7 @@ export default function Philosophy() {
             <span className="text-[#00ff87]">Explore by Building.</span>
           </h2>
           <p className="text-[#666666] text-lg leading-relaxed">
-            Saturday Hack Night is not a bootcamp. There are no lectures. You
-            pick a theme, you pick a stack, and you build something — anything —
+            Saturday Hack Night is not a bootcamp. There are no lectures. We pick a tech stack each week, and you build something — anything —
             by midnight. That&apos;s the whole curriculum.
           </p>
         </motion.div>
