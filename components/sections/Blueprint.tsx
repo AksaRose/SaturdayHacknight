@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "@/lib/motion";
 import { ClipboardList, Code2, Trophy } from "lucide-react";
 import StepConnector from "@/components/ui/StepConnector";
@@ -49,9 +50,8 @@ export default function Blueprint() {
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-0 items-center">
           {steps.map((step, i) => (
-            <>
+            <Fragment key={step.number}>
               <motion.div
-                key={step.number}
                 className="glass-card rounded-xl p-6 text-center md:col-span-1 group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export default function Blueprint() {
 
               {/* Connector — between steps only */}
               {i < steps.length - 1 && (
-                <div key={`connector-${i}`} className="md:col-span-1 md:px-2">
+                <div className="md:col-span-1 md:px-2">
                   <StepConnector />
                   {/* Mobile vertical connector */}
                   <div className="md:hidden flex justify-center">
@@ -89,7 +89,7 @@ export default function Blueprint() {
                   </div>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
 

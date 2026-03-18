@@ -1,15 +1,36 @@
 "use client";
 
 import { motion } from "@/lib/motion";
-import { ImageIcon } from "lucide-react";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { testimonials } from "@/lib/data";
 
-function PhotoPlaceholder({ label }: { label: string }) {
+/** Public assets live under basePath in next.config (static export + GitHub Pages). */
+const ASSET = (path: string) =>
+  `/saturday-hack-night${path.startsWith("/") ? path : `/${path}`}`;
+
+function ExperiencePhoto({
+  src,
+  alt,
+  label,
+}: {
+  src: string;
+  alt: string;
+  label: string;
+}) {
   return (
-    <div className="glass-card rounded-xl aspect-video flex flex-col items-center justify-center gap-3 break-inside-avoid">
-      <ImageIcon size={24} className="text-[#444444]" />
-      <p className="font-mono text-xs text-[#444444]">{label}</p>
+    <div className="glass-card rounded-xl overflow-hidden break-inside-avoid flex flex-col">
+      <div className="relative aspect-video w-full bg-[#111] overflow-hidden">
+        <img
+          src={src}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <p className="font-mono text-xs text-[#666666] px-3 py-2.5 border-t border-white/8">
+        {label}
+      </p>
     </div>
   );
 }
@@ -38,19 +59,34 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        {/* Masonry grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {/* Row 1: two stories + photo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           {testimonials[0] && (
             <TestimonialCard testimonial={testimonials[0]} index={0} />
           )}
-          <PhotoPlaceholder label="TinkerSpace Kochi — Finale night" />
           {testimonials[1] && (
             <TestimonialCard testimonial={testimonials[1]} index={1} />
           )}
+          <ExperiencePhoto
+            src={ASSET("/photos/IMG_5813.JPG")}
+            alt="Kailash Nadh addressing hacknighters during Physical Hack Night"
+            label="Kailash Nadh addressing hacknighters during Physical Hack Night"
+          />
+        </div>
+        {/* Row 2: third story + second photo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials[2] && (
-            <TestimonialCard testimonial={testimonials[2]} index={2} />
+            <TestimonialCard
+              testimonial={testimonials[2]}
+              index={2}
+              className="lg:col-span-2"
+            />
           )}
-          <PhotoPlaceholder label="Online sprint in progress" />
+          <ExperiencePhoto
+            src={ASSET("/photos/IMG_5699.JPG")}
+            alt="Hack Night in progress"
+            label="Hack Night in progress"
+          />
         </div>
 
         {/* Stats */}

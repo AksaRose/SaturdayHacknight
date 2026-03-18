@@ -29,9 +29,21 @@ export default function TestimonialCard({
       <p className="text-white/80 text-base leading-relaxed italic mb-4">
         {testimonial.quote}
       </p>
-      <p className="font-mono text-sm text-[#00ff87]">
-        &mdash; {testimonial.name}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p className="font-mono text-sm text-[#00ff87]">
+          &mdash; {testimonial.name}
+        </p>
+        {testimonial.url && (
+          <a
+            href={testimonial.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] text-[#00d4ff] hover:text-white underline-offset-2 hover:underline"
+          >
+            Read full story →
+          </a>
+        )}
+      </div>
     </motion.div>
   );
 }

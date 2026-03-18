@@ -54,6 +54,7 @@ export interface PastHackNight {
 export interface Testimonial {
   name: string;
   quote: string;
+  url?: string;
 }
 
 export interface FaqItem {
@@ -636,6 +637,24 @@ export const pastHackNights: PastHackNight[] = [
 
 export const testimonials = [
   {
+    name: "Irine Paul",
+    quote:
+      "Saturday Hack Night in 2024 was my first-ever hackathon — we built a LangChain-powered PDF chat app, got selected for the offline night, and that quiet push still shapes my journey.",
+    url: "https://www.linkedin.com/posts/irine-paul-731290293_saturdayhacknight-tinkerhub-ugcPost-7426895542833582080-OfI5",
+  },
+  {
+    name: "Hritik Krishna",
+    quote:
+      "Saturday Hack Night 2024 at TinkerSpace Kochi was my first offline hackathon — after building online for SHNs, we shipped a scholarship finder website and met makers from all over Kerala.",
+    url: "https://www.linkedin.com/posts/hritikkrishna_saturdayhacknight-hackathon-tinkerhub-ugcPost-7335675928003428353-nlXH",
+  },
+  {
+    name: "Nithin Samuel",
+    quote:
+      "FastAPI: Saturday HackNight was the perfect push to ship a real full-stack app — I built a movie database with a pure JS dashboard on top of a FastAPI CRUD backend, and saw how quickly a production-ready API can come together.",
+    url: "https://www.linkedin.com/posts/nithincea_fastapi-python-webdevelopment-ugcPost-7362779299394842624-nZIO",
+  },
+  {
     name: "Abhijith",
     quote:
       "I built my first deployed app in 6 hours. The vibe is unmatched.",
@@ -643,10 +662,6 @@ export const testimonials = [
   {
     name: "Sara",
     quote: "TinkerSpace Kochi felt like a second home during the finale.",
-  },
-  {
-    name: "Rohan",
-    quote: "SHN pushed me to stop procrastinating and actually ship.",
   },
 ];
 
