@@ -53,7 +53,6 @@ export default function TinkerSpace() {
                   "Meals and beverages throughout",
                   "Mentor sessions with industry builders",
                   "Travel stipend details shared on invitation",
-                  "Accommodation for outstation participants (on request)",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-sm text-[#888888]">
                     <span className="text-[#00ff87] mt-0.5 shrink-0">✓</span>
@@ -106,11 +105,11 @@ export default function TinkerSpace() {
               </div>
               <div className="space-y-2 font-mono text-xs text-[#666666]">
                 {[
-                  ["6:00 PM", "Teams arrive, check in"],
-                  ["7:00 PM", "Theme announced, hacking begins"],
+                  ["4:00 PM", "Teams arrive, check in"],
+                  ["6:00 PM", "Theme announced, hacking begins"],
                   ["All night", "Build. Mentors available."],
                   ["6:00 AM", "Final push deadline"],
-                  ["10:00 AM", "Project demos & presentations"],
+                  ["8:00 AM", "Project demos & presentations"],
                 ].map(([time, label]) => (
                   <div key={time} className="flex gap-4">
                     <span className="text-[#ffb800] w-20 shrink-0">{time}</span>

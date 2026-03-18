@@ -62,10 +62,10 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           {[
-            { value: "5", label: "Online Sprints" },
-            { value: "24h", label: "Grand Finale" },
-            { value: "∞", label: "Things to Build" },
-            { value: "0", label: "Prior XP Needed" },
+            { value: "1600+", label: "Participants" },
+            { value: "400+", label: "Projects" },
+            { value: "45+", label: "HackNights" },
+            { value: "5", label: "Offline HackNights" },
           ].map((stat) => (
             <div key={stat.label} className="text-center glass-card rounded-xl p-5">
               <div className="font-mono text-3xl font-bold text-[#00ff87] mb-1">

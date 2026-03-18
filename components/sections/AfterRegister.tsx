@@ -6,39 +6,52 @@ import { Mail, MessageSquare, Lightbulb, Github, Moon, Trophy } from "lucide-rea
 const steps = [
   {
     icon: Mail,
-    time: "Immediately",
-    title: "Confirmation email",
-    description: "You'll get an email from hub.tinkerhub.org confirming your spot. Check spam if you don't see it within 5 minutes.",
-  },
-  {
-    icon: MessageSquare,
-    time: "Day before",
-    title: "Discord invite + theme preview",
-    description: "Join the SHN Discord server. The Saturday theme is announced 24 hours in advance so you can do light prep if you want.",
+    time: "Right after you register",
+    title: "Get your confirmation email",
+    description:
+      "After you register for a specific SHN, you’ll receive a confirmation email from hub.tinkerhub.org with all the key details. Check spam if you don’t see it in a few minutes.",
   },
   {
     icon: Lightbulb,
-    time: "Saturday 6:00 PM IST",
-    title: "Theme drops. Hacking starts.",
-    description: "The full challenge brief goes live. Mentors come online. You have the rest of the night — no check-ins, no progress reports, just build.",
+    time: "1 day before · 8:00 PM",
+    title: "LetXplore intro session",
+    description:
+      "On the day before the hack night, there’s a LetXplore session at 8 PM IST — a live intro to that week’s theme, tools, and example ideas so you’re not starting cold.",
   },
   {
     icon: Github,
-    time: "Saturday by midnight",
-    title: "Push and submit",
-    description: "Push your code to a public GitHub repo and submit the link via the hub.app form. A working prototype is enough — polish is optional.",
+    time: "Hack Night Saturday · 6:00 PM",
+    title: "Saturday Hack Night starts",
+    description:
+      "On Saturday at 6 PM IST, the actual SHN begins. You team up, build around the week’s theme, and work towards a working prototype before midnight.",
+  },
+  {
+    icon: MessageSquare,
+    time: "Hack Night Saturday · 8:00 PM",
+    title: "Idea pitch call",
+    description:
+      "Around 8 PM IST, there’s a pitch session where teams quickly present their idea on a live call. It’s informal but helps you clarify what you’re building.",
   },
   {
     icon: Moon,
-    time: "Sunday",
-    title: "Projects reviewed",
-    description: "The TinkerHub team reviews all submissions. Standout projects are featured in the SHN Discord and the archive page.",
+    time: "Hack Night Saturday · ~11:00 PM",
+    title: "Submit your project",
+    description:
+      "By around 11 PM IST, you wrap up and submit your project through hub.tinkerhub.org — link to your public GitHub repo plus a short description is enough.",
+  },
+  {
+    icon: Trophy,
+    time: "Within 4 days",
+    title: "Results announced",
+    description:
+      "Within the next 4 days, the TinkerHub team reviews all submissions and announces results for that SHN night. Standout projects move closer to the finale.",
   },
   {
     icon: Trophy,
     time: "After all 5 nights",
-    title: "Finale invitations sent",
-    description: "Top teams from the season receive direct invitations to the 24-hour offline hackathon at TinkerSpace Kochi.",
+    title: "Invite to TinkerSpace finale",
+    description:
+      "Once the full season of 5 SHN nights is over, top teams receive email invites to the 24-hour in-person finale at TinkerSpace Kochi — that email is your official invitation.",
   },
 ];
 
